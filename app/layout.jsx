@@ -1,3 +1,4 @@
+import Nav from '@components/Nav';
 import '@styles/globals.css';
 
 export const metadata = {
@@ -5,13 +6,16 @@ export const metadata = {
   description: 'Discover ad share AI prompts',
 };
 
-const RootLayout = ({children}) => {
+const RootLayout = ({ children }) => {
   return (
     <html lang='en'>
       <body>
         <div className='main'>
           <div className='gradient' />
-          <main className='app'>{children}</main>
+          <main className='app'>
+            <Nav />
+            {children}
+          </main>
         </div>
       </body>
     </html>
