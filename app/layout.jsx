@@ -3,7 +3,7 @@ import '@styles/globals.css';
 
 export const metadata = {
   title: 'Promptopia',
-  description: 'Discover ad share AI prompts',
+  description: 'Discover & share AI prompts',
 };
 
 const RootLayout = ({ children }) => {
@@ -12,11 +12,12 @@ const RootLayout = ({ children }) => {
       <body>
         <div className='main'>
           <div className='gradient' />
+        </div>
+        
           <main className='app'>
             <Nav />
             {children}
           </main>
-        </div>
       </body>
     </html>
   );
