@@ -1,5 +1,7 @@
-# Promptopia - NextJS 13.4
+# Share Ai Prompts - NextJS 13.4
 
+  - Next JS - App router
+  - Server Components
   - Crud Application
   - Next Auth
   - MongoDB

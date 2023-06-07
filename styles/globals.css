@@ -8,6 +8,7 @@
   Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
 */
 
+
 .main {
   width: 100vw;
   min-height: 100vh;
@@ -19,7 +20,7 @@
 }
 
 .main:before {
-  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 100%);
+  background: radial-gradient(circle, rgba(34, 33, 35, 0) 0, #e7ecef 100%);
   position: absolute;
   content: "";
   z-index: 2;
@@ -71,6 +72,11 @@
   }
 }
 
+.logo_style{
+    filter: hue-rotate(180deg);
+}
+
+
 /* Tailwind Styles */
 
 .app {
@@ -90,7 +96,7 @@
 }
 
 .orange_gradient {
-  @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500  bg-clip-text text-transparent;
 }
 
 .green_gradient {
