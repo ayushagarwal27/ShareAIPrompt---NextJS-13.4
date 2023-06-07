@@ -22,13 +22,33 @@ const PromptCardList = ({ data, handleTagClick }) => {
 const Feed = () => {
   const [searchText, setSearchText] = useState('');
   const [posts, setPosts] = useState([]);
-  const handleSearch = () => {};
+  const [filteredPost, setFilteredPost] = useState([]);
+
+  const handleSearch = e => {
+    setSearchText(e.target.value);
+    if (e.target.value === '') {
+      setFilteredPost(posts);
+      return;
+    }
+    const filteredNextPosts = posts.filter(
+      post =>
+        post.tag.includes(searchText) ||
+        post?.creator?.username.includes(searchText),
+    );
+    setFilteredPost(filteredNextPosts);
+  };
+
+  const handleSearchByTag = tag => {
+    const filteredNextPosts = posts.filter(post => post.tag.includes(tag));
+    setFilteredPost(filteredNextPosts);
+  };
 
   useEffect(() => {
     const fetchPost = async () => {
       const res = await fetch('/api/prompt');
       const data = await res.json();
       setPosts(data);
+      setFilteredPost(data);
     };
     fetchPost();
   }, []);
@@ -45,7 +65,7 @@ const Feed = () => {
           className='search_input peer'
         />
       </form>
-      <PromptCardList data={posts} handleTagClick={() => {}} />
+      <PromptCardList data={filteredPost} handleTagClick={handleSearchByTag} />
     </section>
   );
 };
